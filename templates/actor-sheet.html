@@ -1,360 +1,447 @@
 <form class="{{cssClass}} actor-sheet" autocomplete="off">
 
-  <section id="name-alias" class="flex-horizontal">
+	<section id="name-alias" class="flex-horizontal">
 
-    <div class="grow-two">
-      <div id="name">
-        <label for="character-name">Name</label>
-        <input type="text" id="character-name" name="name" value="{{actor.name}}">
-      </div>
+		<div class="grow-two">
+			<div id="name">
+				<label for="character-name">Name</label>
+				<input type="text" id="character-name" name="name" value="{{actor.name}}">
+			</div>
 
-      <div id="character-traits" class="flex-column">
-        
-        <div class="item-block flex-horizontal">
-          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="heritage">Heritage</a></div>
-          {{#each actor.items as |item id|}}
-              {{#if (eq item.type "heritage")}}
-              <div class="item flex-horizontal" data-item-id="{{item._id}}">
-                <div class="item-body flex-horizontal">
-                  <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                  <div class="item-name">{{item.name}}</div>
-                </div>
-                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-          {{/each}}
-        </div>
+			<div id="character-traits" class="flex-column">
 
-        <div class="item-block flex-horizontal">
-          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="background">Background</a></div>
-          {{#each actor.items as |item id|}}
-            {{#if (eq item.type "background")}}
-            <div class="item flex-horizontal" data-item-id="{{item._id}}">
-              <div class="item-body flex-horizontal">
-                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                <div class="item-name">{{item.name}}</div>
-              </div>
-              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-            </div>
-            {{/if}}
-          {{/each}}
-        </div>
+				<div class="item-block flex-horizontal">
+					<div class="item-class-label">
+						<a class="item-add-popup" data-distinct="true" data-item-type="heritage">Heritage</a>
+					</div>
+					{{#each actor.items as |item id|}}
+						{{#if (eq item.type "heritage")}}
+							<div class="item flex-horizontal" data-item-id="{{item._id}}">
+								<div class="item-body flex-horizontal">
+									<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									<div class="item-name">{{item.name}}</div>
+								</div>
+								<a class="item-control item-delete" title="Delete Item">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
+						{{/if}}
+					{{/each}}
+				</div>
 
-        <div class="item-block flex-horizontal">
-          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="vice">Vice</a></div>
-          {{#each actor.items as |item id|}}
-              {{#if (eq item.type "vice")}}
-              <div class="item flex-horizontal" data-item-id="{{item._id}}">
-                <div class="item-body flex-horizontal">
-                  <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                  <div class="item-name">{{item.name}}</div>
-                </div>
-                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-              </div>
-              {{/if}}
-          {{/each}}
-        </div>
+				<div class="item-block flex-horizontal">
+					<div class="item-class-label">
+						<a class="item-add-popup" data-distinct="true" data-item-type="background">Background</a>
+					</div>
+					{{#each actor.items as |item id|}}
+						{{#if (eq item.type "background")}}
+							<div class="item flex-horizontal" data-item-id="{{item._id}}">
+								<div class="item-body flex-horizontal">
+									<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									<div class="item-name">{{item.name}}</div>
+								</div>
+								<a class="item-control item-delete" title="Delete Item">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
+						{{/if}}
+					{{/each}}
+				</div>
 
-        <div class="item-block flex-horizontal">
-          <div class="item-class-label"><a class="item-add-popup" data-distinct="true" data-item-type="class">Class</a></div>
-            {{#each actor.items as |item id|}}
-                {{#if (eq item.type "class")}}
-                <div class="item flex-horizontal" data-item-id="{{item._id}}">
-                  <div class="item-body flex-horizontal">
-                    <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                    <div class="item-name">{{item.name}}</div>
-                  </div>
-                  <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                </div>
-                {{/if}}
-            {{/each}}
-          </div>
+				<div class="item-block flex-horizontal">
+					<div class="item-class-label">
+						<a class="item-add-popup" data-distinct="true" data-item-type="vice">Vice</a>
+					</div>
+					{{#each actor.items as |item id|}}
+						{{#if (eq item.type "vice")}}
+							<div class="item flex-horizontal" data-item-id="{{item._id}}">
+								<div class="item-body flex-horizontal">
+									<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									<div class="item-name">{{item.name}}</div>
+								</div>
+								<a class="item-control item-delete" title="Delete Item">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
+						{{/if}}
+					{{/each}}
+				</div>
 
-      </div>
-    </div>
+				<div class="item-block flex-horizontal">
+					<div class="item-class-label">
+						<a class="item-add-popup" data-distinct="true" data-item-type="class">Class</a>
+					</div>
+					{{#each actor.items as |item id|}}
+						{{#if (eq item.type "class")}}
+							<div class="item flex-horizontal" data-item-id="{{item._id}}">
+								<div class="item-body flex-horizontal">
+									<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									<div class="item-name">{{item.name}}</div>
+								</div>
+								<a class="item-control item-delete" title="Delete Item">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
+						{{/if}}
+					{{/each}}
+				</div>
 
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+			</div>
+		</div>
 
-    <div class="grow-two">
-      <div id="alias">
-        <label for="character-alias">Alias</label>
-        <input type="text" id="character-alias" name="data.alias" value="{{data.alias}}">
-      </div>
+		<img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
 
-      {{> "systems/blades-in-the-dark/templates/parts/coins.html"}}
-    </div>
+		<div class="grow-two">
+			<div id="alias">
+				<label for="character-alias">Alias</label>
+				<input type="text" id="character-alias" name="data.alias" value="{{data.alias}}">
+			</div>
 
-  </section>
+			{{> "systems/band-of-blades/templates/parts/coins.html"}}
+		</div>
 
-  {{!-- Experience --}}
-  <section class="experience">
-  </section>
-  {{!-- Stress and Trauma --}}
-  <div id="stress-trauma" class="section big-teeth-section">
-    <div id="character-stress" class="big-teeth">
-      {{#multiboxes data.stress}}
-      <input type="radio" id="character-stress-0" name="data.stress" value="0" dtype="Radio">
-      <label class="black-label" for="character-stress-0">Stress</label>
-      <input type="radio" id="character-stress-1" name="data.stress" value="1" dtype="Radio">
-      <label for="character-stress-1"></label>
-      <input type="radio" id="character-stress-2" name="data.stress" value="2" dtype="Radio">
-      <label for="character-stress-2"></label>
-      <input type="radio" id="character-stress-3" name="data.stress" value="3" dtype="Radio">
-      <label for="character-stress-3"></label>
-      <input type="radio" id="character-stress-4" name="data.stress" value="4" dtype="Radio">
-      <label for="character-stress-4"></label>
-      <input type="radio" id="character-stress-5" name="data.stress" value="5" dtype="Radio">
-      <label for="character-stress-5"></label>
-      <input type="radio" id="character-stress-6" name="data.stress" value="6" dtype="Radio">
-      <label for="character-stress-6"></label>
-      <input type="radio" id="character-stress-7" name="data.stress" value="7" dtype="Radio">
-      <label for="character-stress-7"></label>
-      <input type="radio" id="character-stress-8" name="data.stress" value="8" dtype="Radio">
-      <label for="character-stress-8"></label>
-      <input type="radio" id="character-stress-9" name="data.stress" value="9" dtype="Radio">
-      <label for="character-stress-9"></label>
-      {{/multiboxes}}
+	</section>
 
-    </div>
-    <div id="character-trauma-container" class="small-teeth-container">
-      {{#traumacounter data.traumas}}
-      <div id="character-trauma" class="small-teeth-wrap">
-        <label class="black-label" for="character-trauma-counter-0">Trauma</label>
-        <div id="trauma-teeth" class="small-teeth">
-          <input type="radio" id="character-trauma-counter-0" name="trauma-counter" value="0">
-          <input type="radio" id="character-trauma-counter-1" name="trauma-counter" value="1">
-          <label for="character-trauma-counter-1"></label>
-          <input type="radio" id="character-trauma-counter-2" name="trauma-counter" value="2">
-          <label for="character-trauma-counter-2"></label>
-          <input type="radio" id="character-trauma-counter-3" name="trauma-counter" value="3">
-          <label for="character-trauma-counter-3"></label>
-          <input type="radio" id="character-trauma-counter-4" name="trauma-counter" value="4">
-          <label for="character-trauma-counter-4"></label>
-        </div>
-      </div>
-      {{/traumacounter}}
-    </div>
+	{{!-- Experience --}}
+	<section class="experience"></section>
 
-    <div id="trauma-list">
-      {{#multiboxes data.traumas}}
-      <label>
-        <input type="checkbox" name="data.traumas" value="cold">
-        <span class="checkmark">cold</span>
-      </label>
-      <label>
-        <input type="checkbox" name="data.traumas" value="haunted">
-        <span class="checkmark">haunted</span>
-      </label>
-      <label>
-        <input type="checkbox" name="data.traumas" value="obsessed">
-        <span class="checkmark">obsessed</span>
-      </label>
-      <label>
-        <input type="checkbox" name="data.traumas" value="paranoid">
-        <span class="checkmark">paranoid</span>
-      </label>
-      <label>
-        <input type="checkbox" name="data.traumas" value="reckless">
-        <span class="checkmark">reckless</span>
-      </label>
-      <label>
-        <input type="checkbox" name="data.traumas" value="soft">
-        <span class="checkmark">soft</span>
-      </label>
-      <label>
-        <input type="checkbox" name="data.traumas" value="unstable">
-        <span class="checkmark">unstable</span>
-      </label>
-      <label>
-        <input type="checkbox" name="data.traumas" value="vicious">
-        <span class="checkmark">vicious</span>
-      </label>
-      {{/multiboxes}}
-    </div>
+	{{!-- Stress and Trauma --}}
+	<div id="stress-trauma" class="section big-teeth-section">
+		<div id="character-stress" class="big-teeth">
+			{{#multiboxes data.stress}}
+				<input type="radio" id="character-stress-0" name="data.stress" value="0" dtype="Radio">
+				<label class="black-label" for="character-stress-0">Stress</label>
+				<input type="radio" id="character-stress-1" name="data.stress" value="1" dtype="Radio">
+				<label for="character-stress-1"></label>
+				<input type="radio" id="character-stress-2" name="data.stress" value="2" dtype="Radio">
+				<label for="character-stress-2"></label>
+				<input type="radio" id="character-stress-3" name="data.stress" value="3" dtype="Radio">
+				<label for="character-stress-3"></label>
+				<input type="radio" id="character-stress-4" name="data.stress" value="4" dtype="Radio">
+				<label for="character-stress-4"></label>
+				<input type="radio" id="character-stress-5" name="data.stress" value="5" dtype="Radio">
+				<label for="character-stress-5"></label>
+				<input type="radio" id="character-stress-6" name="data.stress" value="6" dtype="Radio">
+				<label for="character-stress-6"></label>
+				<input type="radio" id="character-stress-7" name="data.stress" value="7" dtype="Radio">
+				<label for="character-stress-7"></label>
+				<input type="radio" id="character-stress-8" name="data.stress" value="8" dtype="Radio">
+				<label for="character-stress-8"></label>
+				<input type="radio" id="character-stress-9" name="data.stress" value="9" dtype="Radio">
+				<label for="character-stress-9"></label>
+			{{/multiboxes}}
 
-  </div>
+		</div>
+		<div id="character-trauma-container" class="small-teeth-container">
+			{{#traumacounter data.traumas}}
+				<div id="character-trauma" class="small-teeth-wrap">
+					<label class="black-label" for="character-trauma-counter-0">Trauma</label>
+					<div id="trauma-teeth" class="small-teeth">
+						<input type="radio" id="character-trauma-counter-0" name="trauma-counter" value="0">
+						<input type="radio" id="character-trauma-counter-1" name="trauma-counter" value="1">
+						<label for="character-trauma-counter-1"></label>
+						<input type="radio" id="character-trauma-counter-2" name="trauma-counter" value="2">
+						<label for="character-trauma-counter-2"></label>
+						<input type="radio" id="character-trauma-counter-3" name="trauma-counter" value="3">
+						<label for="character-trauma-counter-3"></label>
+						<input type="radio" id="character-trauma-counter-4" name="trauma-counter" value="4">
+						<label for="character-trauma-counter-4"></label>
+					</div>
+				</div>
+			{{/traumacounter}}
+		</div>
 
-  {{!-- Harm, Healing and Armor --}}
-  <section id="harm-armor">
-    <div id="character-harm">
-      <table>
-        <thead>
-          <th class="black-white" colspan="4">Harm</th>
-          <th class="black-white"><label for="character-healing-clock-0">Healing</label></th>
-          <th class="black-white">Armor</th>
-        </thead>
-        <tbody>
-          <tr>
-            <td>3</td>
-            <td colspan="2">
-              <input type="text" id="character-harm-3-1" name="data.harm.heavy.one" value="{{data.harm.heavy.one}}">
-            </td>
-            <td>Need Help</td>
-            <td rowspan="3">
-              {{#multiboxes data.healing-clock}}
-              <div id="character-health-clock">
-                <input type="radio" value="0" id="character-healing-clock-0" name="data.healing-clock" checked="checked">
-                <input type="radio" value="1" id="character-healing-clock-1" name="data.healing-clock">
-                <label for="character-healing-clock-1"></label>
-                <input type="radio" value="2" id="character-healing-clock-2" name="data.healing-clock">
-                <label for="character-healing-clock-2"></label>
-                <input type="radio" value="3" id="character-healing-clock-3" name="data.healing-clock">
-                <label for="character-healing-clock-3"></label>
-                <input type="radio" value="4" id="character-healing-clock-4" name="data.healing-clock">
-                <label for="character-healing-clock-4"></label>
-                {{/multiboxes}}
-              </div>
-            </td>
-            <td rowspan="3" id="character-armor-uses">
-              <div>
-                <label for="armor-uses-armor">Armor</label>
-                <input id="armor-uses-armor" type="checkbox" name="data.armor-uses.armor" {{checked data.armor-uses.armor}}>
-              </div>
-              <div>
-                <label for="armor-uses-heavy">Heavy</label>
-                <input id="armor-uses-heavy" type="checkbox" name="data.armor-uses.heavy" {{checked data.armor-uses.heavy}}>
-              </div>
-              <div>
-                <label for="armor-uses-special">Special</label>
-                <input id="armor-uses-special" type="checkbox" name="data.armor-uses.special" {{checked data.armor-uses.special}}>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>
-              <input type="text" id="character-harm-2-1" name="data.harm.medium.one" value="{{data.harm.medium.one}}">
-            </td>
-            <td>
-              <input type="text" id="character-harm-2-2" name="data.harm.medium.two" value="{{data.harm.medium.two}}">
-            </td>
-            <td>-1D</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>
-              <input type="text" id="character-harm-1-1" name="data.harm.light.one" value="{{data.harm.light.one}}">
-            </td>
-            <td>
-              <input type="text" id="character-harm-1-2" name="data.harm.light.two" value="{{data.harm.light.two}}">
-            </td>
-            <td>Less Effect</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+		<div id="trauma-list">
+			{{#multiboxes data.traumas}}
+				<label>
+					<input type="checkbox" name="data.traumas" value="cold">
+					<span class="checkmark">cold</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.traumas" value="haunted">
+					<span class="checkmark">haunted</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.traumas" value="obsessed">
+					<span class="checkmark">obsessed</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.traumas" value="paranoid">
+					<span class="checkmark">paranoid</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.traumas" value="reckless">
+					<span class="checkmark">reckless</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.traumas" value="soft">
+					<span class="checkmark">soft</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.traumas" value="unstable">
+					<span class="checkmark">unstable</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.traumas" value="vicious">
+					<span class="checkmark">vicious</span>
+				</label>
+			{{/multiboxes}}
+		</div>
+
+	</div>
+
+	<div id="corruption-blight" class="section big-teeth-section">
+		<div id="character-corruption" class="big-teeth">
+			{{#multiboxes data.corruption}}
+				<input type="radio" id="character-corruption-0" name="data.corruption" value="0" dtype="Radio">
+				<label class="black-label" for="character-corruption-0">Corruption</label>
+				<input type="radio" id="character-corruption-1" name="data.corruption" value="1" dtype="Radio">
+				<label for="character-corruption-1"></label>
+				<input type="radio" id="character-corruption-2" name="data.corruption" value="2" dtype="Radio">
+				<label for="character-corruption-2"></label>
+				<input type="radio" id="character-corruption-3" name="data.corruption" value="3" dtype="Radio">
+				<label for="character-corruption-3"></label>
+				<input type="radio" id="character-corruption-4" name="data.corruption" value="4" dtype="Radio">
+				<label for="character-corruption-4"></label>
+				<input type="radio" id="character-corruption-5" name="data.corruption" value="5" dtype="Radio">
+				<label for="character-corruption-5"></label>
+				<input type="radio" id="character-corruption-6" name="data.corruption" value="6" dtype="Radio">
+				<label for="character-corruption-6"></label>
+			{{/multiboxes}}
+
+		</div>
+
+		<div id="character-blight" class="big-teeth">
+			{{#multiboxes data.blight}}
+				<input type="radio" id="character-blight-0" name="data.blight" value="0" dtype="Radio">
+				<label class="black-label" for="character-blight-0">Blight</label>
+				<input type="radio" id="character-blight-1" name="data.blight" value="1" dtype="Radio">
+				<label for="character-blight-1"></label>
+				<input type="radio" id="character-blight-2" name="data.blight" value="2" dtype="Radio">
+				<label for="character-blight-2"></label>
+				<input type="radio" id="character-blight-3" name="data.blight" value="3" dtype="Radio">
+				<label for="character-blight-3"></label>
+				<input type="radio" id="character-blight-4" name="data.blight" value="4" dtype="Radio">
+				<label for="character-blight-4"></label>
+				<input type="radio" id="character-blight-5" name="data.blight" value="5" dtype="Radio">
+				<label for="character-blight-5"></label>
+				<input type="radio" id="character-blight-6" name="data.blight" value="6" dtype="Radio">
+				<label for="character-blight-6"></label>
+			{{/multiboxes}}
+
+		</div>
+	</div>
+
+	{{!-- Harm, Healing and Armor --}}
+	<section id="harm-armor">
+		<div id="character-harm">
+			<table>
+				<thead>
+					<th class="black-white" colspan="4">Harm</th>
+					<th class="black-white">
+						<label for="character-healing-clock-0">Healing</label>
+					</th>
+					<th class="black-white">Armor</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>3</td>
+						<td colspan="2">
+							<input type="text" id="character-harm-3-1" name="data.harm.heavy.one" value="{{data.harm.heavy.one}}">
+						</td>
+						<td>Need Help</td>
+						<td rowspan="3">
+							{{#multiboxes data.healing-clock}}
+								<div id="character-health-clock">
+									<input type="radio" value="0" id="character-healing-clock-0" name="data.healing-clock" checked="checked">
+									<input type="radio" value="1" id="character-healing-clock-1" name="data.healing-clock">
+									<label for="character-healing-clock-1"></label>
+									<input type="radio" value="2" id="character-healing-clock-2" name="data.healing-clock">
+									<label for="character-healing-clock-2"></label>
+									<input type="radio" value="3" id="character-healing-clock-3" name="data.healing-clock">
+									<label for="character-healing-clock-3"></label>
+									<input type="radio" value="4" id="character-healing-clock-4" name="data.healing-clock">
+									<label for="character-healing-clock-4"></label>
+								{{/multiboxes}}
+							</div>
+						</td>
+						<td rowspan="3" id="character-armor-uses">
+							<div>
+								<label for="armor-uses-armor">Armor</label>
+								<input id="armor-uses-armor" type="checkbox" name="data.armor-uses.armor" {{checked data.armor-uses.armor}}>
+							</div>
+							<div>
+								<label for="armor-uses-heavy">Heavy</label>
+								<input id="armor-uses-heavy" type="checkbox" name="data.armor-uses.heavy" {{checked data.armor-uses.heavy}}>
+							</div>
+							<div>
+								<label for="armor-uses-shield">Shield</label>
+								<input id="armor-uses-shield" type="checkbox" name="data.armor-uses.shield" {{checked data.armor-uses.shield}}>
+							</div>
+							<div>
+								<label for="armor-uses-special">Special</label>
+								<input id="armor-uses-special" type="checkbox" name="data.armor-uses.special" {{checked data.armor-uses.special}}>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>
+							<input type="text" id="character-harm-2-1" name="data.harm.medium.one" value="{{data.harm.medium.one}}">
+						</td>
+						<td>
+							<input type="text" id="character-harm-2-2" name="data.harm.medium.two" value="{{data.harm.medium.two}}">
+						</td>
+						<td>-1D</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>
+							<input type="text" id="character-harm-1-1" name="data.harm.light.one" value="{{data.harm.light.one}}">
+						</td>
+						<td>
+							<input type="text" id="character-harm-1-2" name="data.harm.light.two" value="{{data.harm.light.two}}">
+						</td>
+						<td>Less Effect</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
 
 
+	{{!-- Attributes --}}
+	<section class="flex-horizontal">
 
+		<div class="tab-content flex-vertical grow-two">
 
-  {{!-- Attributes --}}
-  <section class="flex-horizontal">
+			{{!-- Nav menu --}}
+			<nav class="tabs flex-horizontal">
+				<a class="item" data-tab="abilities">Abilities</a>
+				<a class="item" data-tab="loadout">Loadout</a>
+				<a class="item" data-tab="character-notes">Notes</a>
+				<a class="item" data-tab="all-character-items">All Items</a>
+			</nav>
 
-    <div class="tab-content flex-vertical grow-two">
+			<div id="abilities" class="tab flex-vertical" data-tab="abilities">
+				<div class="label-stripe">
+					<p>
+						<label for="character-experience-0">Abilities</label>
+					</p>
+					<p>
+						<a class="item-add-popup" data-item-type="ability">
+							<i class="fas fa-plus-square"></i>
+						</a>
+					</p>
+					<div id="character-experience" class="teeth-experience">
+						{{#multiboxes data.experience}}
+							<input type="radio" id="character-experience-0" name="data.experience" value="0" dtype="Radio">
+							<input type="radio" id="character-experience-1" name="data.experience" value="1" dtype="Radio">
+							<label for="character-experience-1"></label>
+							<input type="radio" id="character-experience-2" name="data.experience" value="2" dtype="Radio">
+							<label for="character-experience-2"></label>
+							<input type="radio" id="character-experience-3" name="data.experience" value="3" dtype="Radio">
+							<label for="character-experience-3"></label>
+							<input type="radio" id="character-experience-4" name="data.experience" value="4" dtype="Radio">
+							<label for="character-experience-4"></label>
+							<input type="radio" id="character-experience-5" name="data.experience" value="5" dtype="Radio">
+							<label for="character-experience-5"></label>
+							<input type="radio" id="character-experience-6" name="data.experience" value="6" dtype="Radio">
+							<label for="character-experience-6"></label>
+							<input type="radio" id="character-experience-7" name="data.experience" value="7" dtype="Radio">
+							<label for="character-experience-7"></label>
+							<input type="radio" id="character-experience-8" name="data.experience" value="8" dtype="Radio">
+							<label for="character-experience-8"></label>
+							<input type="radio" id="character-experience-9" name="data.experience" value="9" dtype="Radio">
+							<label for="character-experience-9"></label>
+						{{/multiboxes}}
+					</div>
+				</div>
 
-      {{!-- Nav menu --}}
-      <nav class="tabs flex-horizontal">
-        <a class="item" data-tab="abilities">Abilities</a>
-        <a class="item" data-tab="loadout">Loadout</a>
-        <a class="item" data-tab="character-notes">Notes</a>
-        <a class="item" data-tab="all-character-items">All Items</a>
-      </nav>
+				<div id="abilities-list">
+					{{#each actor.items as |item id|}}
+						{{#if (eq item.type "ability")}}
+							<div class="item flex-horizontal" data-item-id="{{item._id}}">
+								<div class="item-body flex-horizontal">
+									<b>
+										<div class="item-name">{{item.name}}</div>
+									</b>
+									<div class="item-description">{{item.data.description}}</div>
+								</div>
+								<a class="item-control item-delete" title="Delete Item">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
+						{{/if}}
+					{{/each}}
+					<div class="item-class-label">
+						<a class="item-add-popup" data-item-type="ability">Add Ability</a>
+					</div>
+				</div>
+			</div>
 
-      <div id="abilities" class="tab flex-vertical" data-tab="abilities">
-        <div class="label-stripe">
-          <p><label for="character-experience-0">Abilities</label></p>
-          <p><a class="item-add-popup" data-item-type="ability"><i class="fas fa-plus-square"></i></a></p>
-          <div id="character-experience" class="teeth-experience">
-            {{#multiboxes data.experience}}
-            <input type="radio" id="character-experience-0" name="data.experience" value="0" dtype="Radio">
-            <input type="radio" id="character-experience-1" name="data.experience" value="1" dtype="Radio">
-            <label for="character-experience-1"></label>
-            <input type="radio" id="character-experience-2" name="data.experience" value="2" dtype="Radio">
-            <label for="character-experience-2"></label>
-            <input type="radio" id="character-experience-3" name="data.experience" value="3" dtype="Radio">
-            <label for="character-experience-3"></label>
-            <input type="radio" id="character-experience-4" name="data.experience" value="4" dtype="Radio">
-            <label for="character-experience-4"></label>
-            <input type="radio" id="character-experience-5" name="data.experience" value="5" dtype="Radio">
-            <label for="character-experience-5"></label>
-            <input type="radio" id="character-experience-6" name="data.experience" value="6" dtype="Radio">
-            <label for="character-experience-6"></label>
-            <input type="radio" id="character-experience-7" name="data.experience" value="7" dtype="Radio">
-            <label for="character-experience-7"></label>
-            <input type="radio" id="character-experience-8" name="data.experience" value="8" dtype="Radio">
-            <label for="character-experience-8"></label>
-            <input type="radio" id="character-experience-9" name="data.experience" value="9" dtype="Radio">
-            <label for="character-experience-9"></label>
-            {{/multiboxes}}
-          </div>
-        </div>
-  
-        <div id="abilities-list">
-          {{#each actor.items as |item id|}}
-          {{#if (eq item.type "ability")}}
-            <div class="item flex-horizontal" data-item-id="{{item._id}}">
-              <div class="item-body flex-horizontal">
-                <b><div class="item-name">{{item.name}}</div></b>
-                <div class="item-description">{{item.data.description}}</div>
-              </div>
-              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-            </div>
-          {{/if}}
-          {{/each}}
-          <div class="item-class-label"><a class="item-add-popup" data-item-type="ability">Add Ability</a></div>
-        </div>
-      </div>
+			{{!-- Owned Items Tab --}}
+			<div id="loadout" class="tab flex-vertical" data-tab="loadout">
+				<div class="label-stripe flex-horizontal">
+					<p>Loadout:
+						{{data.loadout}}</p>
+					<p>
+						<a class="item-add-popup" data-item-type="item">
+							<i class="fas fa-plus-square"></i>
+						</a>
+					</p>
+				</div>
+				<div>
+					{{#each actor.items as |item id|}}
+						{{#if (eq item.type "item")}}
+							<div class="item flex-horizontal" data-item-id="{{item._id}}">
+								<div class="item-body flex-horizontal">
+									<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									<div class="item-name">{{item.name}}</div>
+									<div class="item-description">{{item.data.description}}</div>
+								</div>
+								<a class="item-control item-delete" title="Delete Item">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
+						{{/if}}
+					{{/each}}
+					<div class="item-class-label">
+						<a class="item-add-popup" data-item-type="item">Add Item</a>
+					</div>
+				</div>
+			</div>
 
-      {{!-- Owned Items Tab --}}
-      <div id="loadout" class="tab flex-vertical" data-tab="loadout">
-        <div class="label-stripe flex-horizontal">
-          <p>Loadout: {{data.loadout}}</p>
-          <p><a class="item-add-popup" data-item-type="item"><i class="fas fa-plus-square"></i></a></p>
-        </div>
-        <div>
-          {{#each actor.items as |item id|}}
-          {{#if (eq item.type "item")}}
-            <div class="item flex-horizontal" data-item-id="{{item._id}}">
-              <div class="item-body flex-horizontal">
-                <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                <div class="item-name">{{item.name}}</div>
-                <div class="item-description">{{item.data.description}}</div>
-              </div>
-              <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-            </div>
-          {{/if}}
-          {{/each}}
-          <div class="item-class-label"><a class="item-add-popup" data-item-type="item">Add Item</a></div>
-        </div>
-      </div>
+			<div class="tab flex-vertical" data-tab="character-notes">
+				<div class="label-stripe">
+					<p>Notes</p>
+				</div>
+				<textarea rows="13" name="data.description">{{{data.description}}}</textarea>
+			</div>
 
-      <div class="tab flex-vertical" data-tab="character-notes">
-        <div class="label-stripe">
-          <p>Notes</p>
-        </div>
-        <textarea rows="13" name="data.description">{{{data.description}}}</textarea>
-      </div>
+			{{!-- Full Item List --}}
+			<div class="tab grow-two flex-vertical" data-tab="all-character-items">
+				<div class="label-stripe">
+					<p>
+						<label>All Items</label>
+					</p>
+				</div>
+				{{#each actor.items as |item id|}}
+					<div class="item flex-horizontal" data-item-id="{{item._id}}">
+						<div class="item-body item-sheet-open flex-horizontal">
+							<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+							<div class="item-name">{{item.name}}</div>
+						</div>
+						<a class="item-control item-delete" title="Delete Item">
+							<i class="fas fa-trash"></i>
+						</a>
+					</div>
+				{{/each}}
+			</div>
 
-      {{!-- Full Item List --}}
-      <div class="tab grow-two flex-vertical" data-tab="all-character-items">
-        <div class="label-stripe">
-          <p><label>All Items</label></p>
-        </div>
-        {{#each actor.items as |item id|}}
-        <div class="item flex-horizontal" data-item-id="{{item._id}}">
-          <div class="item-body item-sheet-open flex-horizontal">
-            <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-            <div class="item-name">{{item.name}}</div>
-          </div>
-          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-        </div>
-        {{/each}}
-      </div>
-
-    </div>
-    {{!-- Attributes --}}
-    {{> "systems/blades-in-the-dark/templates/parts/attributes.html"}}
-  </section>
+		</div>
+		{{!-- Attributes --}}
+		{{> "systems/band-of-blades/templates/parts/attributes.html"}}
+	</section>
 
 </form>

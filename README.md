@@ -5,6 +5,7 @@
 Contact Discord: `megastruktur#5704` in case you find any bugs or if you have any suggestions.
 
 ## Usage
+
 `"Item" - all classes, crew types, upgrades, items, abilities, upgrades, etc.`
 
 - To reset reputation, exp, etc counters just click on the label name.
@@ -18,6 +19,7 @@ Contact Discord: `megastruktur#5704` in case you find any bugs or if you have an
 - To add Custom abilities just add a new "Foundry Item" of the corresponding type and fill all the necessary info. Then drag it to the sheet or add via button on a sheet.
 
 Classes:
+
 - (C) Cutter
 - (H) Hound
 - (Le) Leech
@@ -27,6 +29,7 @@ Classes:
 - (W) Whisper
 
 Crew Types:
+
 - (A) Assassins
 - (B) Bravos
 - (C) Cult
@@ -37,24 +40,28 @@ Crew Types:
 ## Screenshots
 
 ### Character Sheet, Crew Sheet and Class
+
 ![alt screen][screenshot_all]
 
 ### Compendium
+
 ![alt screen][screenshot_compendium]
 
 ## To be done in the nearest future
+
 - Clocks
 - Friends/rivals section
 - Stress/Harm dynamic values (can be modified by abilities but for now are hardcoded)
 - Enhance Dice Rolling (ability modifiers)
 
 ## Troubleshooting
+
 - If you can't find the drag-n-dropped item, refer to "All Items" tab on each sheet.
 
 ## Credits
-- This work is based on Blades in the Dark (found at http://www.bladesinthedark.com/), product of One Seven Design, developed and authored by John Harper, and licensed for our use under the Creative Commons Attribution 3.0 Unported license (http://creativecommons.org/licenses/by/3.0/).
-- Some assets were taken from here (thank you  timdenee and joesinghaus): https://github.com/joesinghaus/Blades-in-the-Dark
 
+- This work is based on Blades in the Dark (found at http://www.bladesinthedark.com/), product of One Seven Design, developed and authored by John Harper, and licensed for our use under the Creative Commons Attribution 3.0 Unported license (http://creativecommons.org/licenses/by/3.0/).
+- Some assets were taken from here (thank you timdenee and joesinghaus): https://github.com/joesinghaus/band-of-blades
 
 [screenshot_all]: ./images/screenshot_all.png "screenshot_all"
 [screenshot_compendium]: ./images/screenshot_compendium.png "screenshot_compendium"

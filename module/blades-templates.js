@@ -3,16 +3,14 @@
  * Pre-loaded templates are compiled and cached for fast access when rendering
  * @return {Promise}
  */
-export const preloadHandlebarsTemplates = async function() {
-
+export const preloadHandlebarsTemplates = async function () {
   // Define template paths to load
   const templatePaths = [
-
     // Actor Sheet Partials
-    "systems/blades-in-the-dark/templates/parts/coins.html",
-    "systems/blades-in-the-dark/templates/parts/attributes.html",
-    "systems/blades-in-the-dark/templates/parts/turf-list.html",
-    "systems/blades-in-the-dark/templates/parts/cohort-block.html"
+    "systems/band-of-blades/templates/parts/coins.html",
+    "systems/band-of-blades/templates/parts/attributes.html",
+    "systems/band-of-blades/templates/parts/turf-list.html",
+    "systems/band-of-blades/templates/parts/cohort-block.html",
   ];
 
   // Load the template parts

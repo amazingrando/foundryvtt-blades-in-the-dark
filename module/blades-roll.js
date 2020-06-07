@@ -1,49 +1,50 @@
 /**
  * Roll Dice.
- * @param {int} dice_amount 
- * @param {string} attribute_name 
+ * @param {int} dice_amount
+ * @param {string} attribute_name
  */
 export async function bladesRoll(dice_amount, attribute_name = "") {
-
   let speaker = ChatMessage.getSpeaker();
   // ChatMessage.getSpeaker(controlledToken)
   let zeromode = false;
-  
-  if ( dice_amount < 0 ) { dice_amount = 0; }
-  if ( dice_amount == 0 ) { zeromode = true; dice_amount = 2; }
 
-  let r = new Roll( `${dice_amount}d6`, {} );
+  if (dice_amount < 0) {
+    dice_amount = 0;
+  }
+  if (dice_amount == 0) {
+    zeromode = true;
+    dice_amount = 2;
+  }
+
+  let r = new Roll(`${dice_amount}d6`, {});
 
   r.roll();
   // r.toMessage();
 
-  // Might be better as a DicePool with keep high/keep low intelligence, 
-  // but I want to get my hands into this directly, and I think players 
+  // Might be better as a DicePool with keep high/keep low intelligence,
+  // but I want to get my hands into this directly, and I think players
   // will want to see all the dice happening.
 
-  let rolls = (r.parts)[0].rolls;
-  
+  let rolls = r.parts[0].rolls;
+
   // Sort roll values from lowest to highest.
-  let sorted_rolls = rolls.map(i => i.roll).sort();
+  let sorted_rolls = rolls.map((i) => i.roll).sort();
 
-
-  let roll_status = "failure"
+  let roll_status = "failure";
 
   if (sorted_rolls[0] === 6 && zeromode) {
     roll_status = "critical-success";
-  }
-  else {
+  } else {
     let use_die;
     let prev_use_die = false;
 
     if (zeromode) {
       use_die = sorted_rolls[0];
-    }
-    else {
+    } else {
       use_die = sorted_rolls[sorted_rolls.length - 1];
 
       if (sorted_rolls.length - 2 >= 0) {
-        prev_use_die = sorted_rolls[sorted_rolls.length - 2]
+        prev_use_die = sorted_rolls[sorted_rolls.length - 2];
       }
     }
 
@@ -66,19 +67,21 @@ export async function bladesRoll(dice_amount, attribute_name = "") {
     else {
       roll_status = "partial-success";
     }
-
   }
 
-  let result = await renderTemplate("systems/blades-in-the-dark/templates/blades-roll.html", {rolls: rolls, roll_status: roll_status, attribute_name: attribute_name});
+  let result = await renderTemplate(
+    "systems/band-of-blades/templates/blades-roll.html",
+    { rolls: rolls, roll_status: roll_status, attribute_name: attribute_name }
+  );
 
   let messageData = {
     speaker: speaker,
     content: result,
     type: CONST.CHAT_MESSAGE_TYPES.OOC,
-    roll: r
-  }
+    roll: r,
+  };
 
-  CONFIG.ChatMessage.entityClass.create(messageData, {})
+  CONFIG.ChatMessage.entityClass.create(messageData, {});
 
   return result;
 }
@@ -87,7 +90,6 @@ export async function bladesRoll(dice_amount, attribute_name = "") {
  * Call a Roll popup.
  */
 export async function simpleRollPopup() {
-  
   new Dialog({
     title: `Simple Roll`,
     content: `
@@ -97,7 +99,10 @@ export async function simpleRollPopup() {
         <div class="form-group">
           <label>Number of Dice:</label>
           <select id="qty" name="qty">
-            ${Array(11).fill().map((item, i) => `<option value="${i}">${i}d</option>`).join('')}
+            ${Array(11)
+              .fill()
+              .map((item, i) => `<option value="${i}">${i}d</option>`)
+              .join("")}
           </select>
         </div>
       </form>
@@ -108,8 +113,8 @@ export async function simpleRollPopup() {
         label: `Roll`,
         callback: (html) => {
           let diceQty = html.find('[name="qty"]')[0].value;
-          console.log("Roll "+diceQty);
-  
+          console.log("Roll " + diceQty);
+
           bladesRoll(diceQty);
         },
       },
@@ -118,6 +123,6 @@ export async function simpleRollPopup() {
         label: `Cancel`,
       },
     },
-    default: "yes"
+    default: "yes",
   }).render(true);
 }
