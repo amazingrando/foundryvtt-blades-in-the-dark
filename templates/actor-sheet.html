@@ -242,6 +242,43 @@
 			{{/multiboxes}}
 
 		</div>
+
+    <div id="conditions-list">
+			{{#multiboxes data.conditions}}
+				<label>
+					<input type="checkbox" name="data.conditions" value="cold">
+					<span class="checkmark">anathema</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.conditions" value="haunted">
+					<span class="checkmark">host</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.conditions" value="obsessed">
+					<span class="checkmark">hunger</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.traumas" value="paranoid">
+					<span class="checkmark">miasma</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.conditions" value="reckless">
+					<span class="checkmark">mutation</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.conditions" value="soft">
+					<span class="checkmark">rage</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.conditions" value="unstable">
+					<span class="checkmark">rot</span>
+				</label>
+				<label>
+					<input type="checkbox" name="data.conditions" value="vicious">
+					<span class="checkmark">visions</span>
+				</label>
+			{{/multiboxes}}
+		</div>
 	</div>
 
 	{{!-- Harm, Healing and Armor --}}
