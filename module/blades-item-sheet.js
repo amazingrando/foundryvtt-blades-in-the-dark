@@ -27,6 +27,7 @@ export class BladesItemSheet extends ItemSheet {
     let simple_item_types = [
       "background",
       "heritage",
+      "heritage_ability",
       "vice",
       "crew_reputation",
     ];

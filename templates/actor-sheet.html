@@ -26,6 +26,18 @@
 								</a>
 							</div>
 						{{/if}}
+
+            {{#if (eq item.type "heritage_ability")}}
+							<div class="item flex-horizontal" data-item-id="{{item._id}}">
+								<div class="item-body flex-horizontal">
+									<img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+									<div class="item-name">{{item.name}}</div>
+								</div>
+								<a class="item-control item-delete" title="Delete Item">
+									<i class="fas fa-trash"></i>
+								</a>
+							</div>
+						{{/if}}
 					{{/each}}
 				</div>
 
